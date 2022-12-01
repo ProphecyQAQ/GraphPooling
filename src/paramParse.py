@@ -10,38 +10,22 @@ def paramterParser():
     parser.add_argument(
         "--dataset",
         nargs   = "?",
-        default = "ENZYMES",
+        default = "PROTEINS",
         help    = "Dataset Name. Default is PROTEINS",
     )
     # ENZYMES
 
-
     parser.add_argument(
-        "--filters-1",
-        type    = int,
-        default = 128,
-        help    = "Dimension of GNN layer1 output. Default is 64."
-    )
-
-
-    parser.add_argument(
-        "--filters-2",
+        "--hidden-dim",
         type    = int,
         default = 64,
         help    = "Dimension of GNN layer1 output. Default is 32."
     )
 
     parser.add_argument(
-        "--filters-3",
-        type    = int,
-        default = 32,
-        help    = "Dimension of GNN layer1 output, default is 16. Default is 16."
-    )
-
-    parser.add_argument(
         "--epochs",
         type    = int,
-        default = 100,
+        default = 150,
         help    = "Number of training epochs,. Default is 100.",
     )
 
@@ -62,7 +46,7 @@ def paramterParser():
     parser.add_argument(
         "--weight-decay",
         type    = float,
-        default = 5*10**-4,
+        default = 5*10**-3,
         help    = "Adam weight decay. Default is 5*10^-4."
     )
 
@@ -71,6 +55,27 @@ def paramterParser():
         type    = bool,
         default = True,
         help    = "Use batch norm.",
+    )
+
+    parser.add_argument(
+        "--num-pooling",
+        type    = int,
+        default = 2,
+        help    = "Number of pooling operator."
+    )
+
+    parser.add_argument(
+        "--assign-ratio",
+        type    = float,
+        default = 0.1,
+        help    = "Assign ratio in pooling layer."
+    )
+    
+    parser.add_argument(
+       "--max-num-node",
+       type    = int,
+       default = 800,
+       help    = "Max node num."
     )
 
     parser.add_argument(
